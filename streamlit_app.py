@@ -12,7 +12,7 @@ if st.button("Get Satellite info"):
 
 #get info function
 def get_satellite_info(location):
-    latitude, longitude = map(float, loaction.split(","))
+    latitude, longitude = map(float, location.split(","))
     api_key = "VVELHC-KKU8DP-Q7D92Q-54GM"
 
     url = f"https://api.n2yo.com/rest/v1/satellite/above/{latitude}/{longitude}/0/70/0/?apiKey={api_key}"
