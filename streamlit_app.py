@@ -1,7 +1,7 @@
 import streamlit as st
+import streamlit.components.v1 as com
 
-
-html_code = '''
+com.html('''
 
 <!DOCTYPE html>
 <html lang="en">
@@ -993,11 +993,7 @@ html_code = '''
   </body>
 </html>
 
-'''
+''')
 
-st.markdown(html_code, unsafe_allow_html=True)
+##st.markdown(html_code, unsafe_allow_html=True)
 
-
-
-st.title("Streamlit App")
-st.write("Hello World")
