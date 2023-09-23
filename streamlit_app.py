@@ -3,7 +3,7 @@ import requests
 
 st.title("Space Satellite Coordinator")
 
-# Function to get satellite info based on location
+# Function to get satellite info based on location using N2YO API License key
 def get_satellite_info(location):
     latitude, longitude = map(float, location.split(","))
     api_key = "VVELHC-KKU8DP-Q7D92Q-54GM"
