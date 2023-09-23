@@ -3,7 +3,7 @@ import requests
 
 st.title("Space Satellite Coordinator")
 
-# Function to get satellite info based on location using N2YO API License key
+# Function to get satellite info based on location
 def get_satellite_info(location):
     latitude, longitude = map(float, location.split(","))
     api_key = "VVELHC-KKU8DP-Q7D92Q-54GM"
@@ -29,7 +29,7 @@ if st.button("Or find the 10 closest satellites using your current location"):
         if "loc" in data:
             current_location = data["loc"]
             satellite_data = get_satellite_info(current_location)
-            st.write("Satellites above your current location:")
+            st.write("10 closest satellites above your current location:")
             for i, sat in enumerate(satellite_data['above']):
                 if i >= 10:  # Display only the first 10 satellites
                     break
