@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as com
 
-com.html('''
+html = '''
 
 <!DOCTYPE html>
 <html lang="en">
@@ -993,7 +993,7 @@ com.html('''
   </body>
 </html>
 
-''')
-
+'''
+com.html(html, width=800, height=600)
 ##st.markdown(html_code, unsafe_allow_html=True)
 
