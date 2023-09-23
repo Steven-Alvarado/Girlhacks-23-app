@@ -1,11 +1,9 @@
 import streamlit as st
 import requests
 
-st.title("Space Satellite Coordiantor")
+st.title("Space Satellite Coordinator")
 
-# Text input for user location
-user_location = st.text_input("Enter your current location to find all of the satellites currently flying above you in space. (latitude, longitude): ")
-
+# Function to get satellite info based on location
 def get_satellite_info(location):
     latitude, longitude = map(float, location.split(","))
     api_key = "VVELHC-KKU8DP-Q7D92Q-54GM"
@@ -16,12 +14,35 @@ def get_satellite_info(location):
 
     return data
 
-# Button to fetch satellite information
-if st.button("Get Satellite info"):
-    if user_location:
-        satellite_data = get_satellite_info(user_location)
-        st.write("Satellites above your location:")
-        for sat in satellite_data['above']:
-            st.write(f"Name: {sat['satname']}, Altitude: {sat['satalt']} km")
+# Button for current location
 
-# Get info function
+# Text input for user location
+user_input_location = st.text_input("Enter any location to find the 10 closest satellites floating above it in space. (latitude, longitude) press Enter: ")
+
+# Button to fetch satellite information based on user input
+
+
+if st.button("Or find the 10 closest satellites using your current location"):
+    try:
+        response = requests.get("https://ipinfo.io/json")
+        data = response.json()
+        if "loc" in data:
+            current_location = data["loc"]
+            satellite_data = get_satellite_info(current_location)
+            st.write("Satellites above your current location:")
+            for i, sat in enumerate(satellite_data['above']):
+                if i >= 10:  # Display only the first 10 satellites
+                    break
+                st.write(f"Name: {sat['satname']}, Altitude: {sat['satalt']} km")
+        else:
+            st.error("Error fetching user location.")
+    except Exception as e:
+        st.error(f"Error fetching user location: {e}")
+
+elif user_input_location:
+    satellite_data = get_satellite_info(user_input_location)
+    st.write(f"Satellites above the specified location ({user_input_location}):")
+    for i, sat in enumerate(satellite_data['above']):
+        if i >= 10:  # Display only the first 10 satellites
+            break
+        st.write(f"Name: {sat['satname']}, Altitude: {sat['satalt']} km")
