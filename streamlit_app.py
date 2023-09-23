@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+import streamlit.components.v1 as components
+import codecs
 
 st.title("Streamlit app")
 
@@ -27,3 +29,32 @@ if user_location:
     st.write("Satellites above your location:")
     for sat in satellite_data['above']:
         st.write(f"Name: {sat['satname']}, Altitude: {sat['satalt']} km")
+
+
+
+
+def spacesite(main_html, width=700, height=1000):
+    site_file = codecs.open(main_html, 'r')
+    page = site_file.read()
+    components.html(page, width=width, height=height, scrolling=True)
+
+def main():
+    """A Space App with Streamlit Components"""
+
+    st.subheader("Space app")
+    
+    spacesite('/index.html')
+ 
+   
+ 
+
+
+if __name__ == '__main__':
+	main()
+    
+    
+    
+    
+    
+##st.markdown(html_code, unsafe_allow_html=True)
+
