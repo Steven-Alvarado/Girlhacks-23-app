@@ -1,10 +1,10 @@
 import streamlit as st
 import requests
 
-st.title("Streamlit app")
+st.title("Space Satellite Coordiantor")
 
 # Text input for user location
-user_location = st.text_input("Enter your current location (latitude, longitude): ")
+user_location = st.text_input("Enter your current location to find all of the satellites currently flying above you in space. (latitude, longitude): ")
 
 def get_satellite_info(location):
     latitude, longitude = map(float, location.split(","))
