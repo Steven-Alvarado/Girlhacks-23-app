@@ -3,7 +3,7 @@ import requests
 
 st.title("Space Satellite Coordinator")
 
-st.image("images/Weather Satellite Images_ If the Earth Took a Selfie.jpeg", caption="Image 1", width=10)
+st.image("images/Weather Satellite Images_ If the Earth Took a Selfie.jpeg", caption="Image 1", width=50)
 
 # Function to get satellite info based on location
 def get_satellite_info(location):
