@@ -3,7 +3,8 @@ import streamlit.components.v1 as components
 import requests
 
 import os
-import openai
+
+#import openai
 
 import codecs
 
@@ -66,24 +67,24 @@ elif user_input_location:
         
         
         
-def callApi(input, planet):
+#def callApi(input, planet):
     
 
-    openai.api_key = "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"
-    messages = [ {"role": "system", "content": 
-              "You are a intelligent SPACE assistant. You are to act as a chatbot for my space and solar system website to provide answers to questions about any planet or anything space related. Always stay on the topic of space and be as informative as you can. Limit your responses to 50 words."} ]
+    #openai.api_key = "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"
+    #messages = [ {"role": "system", "content": 
+              #"You are a intelligent SPACE assistant. You are to act as a chatbot for my space and solar system website to provide answers to questions about any planet or anything space related. Always stay on the topic of space and be as informative as you can. Limit your responses to 50 words."} ]
     
-    messages.append(
-         {"role": "user", "content": input}
-        )
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages
-    )
-    reply = response['choices'][0]['message']['content']
+    #messages.append(
+         #{"role": "user", "content": input}
+        #)
+    #response = openai.ChatCompletion.create(
+        #model="gpt-3.5-turbo",
+        #messages=messages
+    #)
+    #reply = response['choices'][0]['message']['content']
 
 
-    st.write(reply)
+    #st.write(reply)
 
     
 
@@ -162,12 +163,12 @@ with pic:
     st.header(planet_name)
     st.image(planet_picture_url, use_column_width=True)
 
-with info:
-    st.header("Information")
-    st.write(planet_info)
-question = st.text_input(label="Chatbot",placeholder="Got a question about our "+ planet_name+"? Ask away!")
-if question:
-    callApi(question, planet_name)
+#with info:
+    #st.header("Information")
+    #st.write(planet_info)
+#question = st.text_input(label="Chatbot",placeholder="Got a question about our "+ planet_name+"? Ask away!")
+#if question:
+    #callApi(question, planet_name)
 
     
 def update():
