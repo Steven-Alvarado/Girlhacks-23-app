@@ -14,14 +14,10 @@ def get_satellite_info(location):
 
     return data
 
-# Button for current location
-
 # Text input for user location
 user_input_location = st.text_input("Enter any location to find the 10 closest satellites floating above it in space. (latitude, longitude) press Enter: ")
 
 # Button to fetch satellite information based on user input
-
-
 if st.button("Or find the 10 closest satellites using your current location"):
     try:
         response = requests.get("https://ipinfo.io/json")
