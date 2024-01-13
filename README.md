@@ -14,6 +14,6 @@ git clone https://github.com/Steven-Alvarado/Girlhacks-23-app
 cd Girlhacks-23-app
 pip install -r streamlit openai
 streamlit run streamlit_app.py
-
+```
 ## Contributors
 David Laskowski, Steven Alvarado, Daniel Lobo, Jay Santamaria
